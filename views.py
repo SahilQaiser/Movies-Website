@@ -55,12 +55,13 @@ def register_page(request):
 		form = RegistrationForm(request.POST)
 		#print 'olaf'
 		if form.is_valid():
-			print 'dsf'
+			#print 'dsf'
 			user = User.objects.create_user(
-			name=form.cleaned_data['name'],			
+						
 			username=form.cleaned_data['username'],
 			password=form.cleaned_data['password1'],
-			email=form.cleaned_data['email'])
+			email=form.cleaned_data['email'],
+			first_name=form.cleaned_data['name_'])
 			return HttpResponseRedirect('/')
 	else:
 		form = RegistrationForm()
